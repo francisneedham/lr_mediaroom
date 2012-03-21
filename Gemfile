@@ -20,6 +20,9 @@ gem 'rack-test', :require => "rack/test", :group => "test"
 # Padrino Stable Gem
 gem 'padrino', '0.10.6'
 gem 'unix_utils'
+gem 'mini_exiftool'
+gem 'carrierwave', :require => %w(carrierwave carrierwave/orm/activerecord)
+
 # Or Padrino Edge
 # gem 'padrino', :git => 'git://github.com/padrino/padrino-framework.git'
 
