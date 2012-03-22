@@ -6,9 +6,9 @@ class Gallery < ActiveRecord::Base
   def self.import_from_archive(path)
     begin
       data = Tools::PhotoExtractor.extract(path)
+      self.create(data['gallery']) if data['gallery']
     rescue
       return false
     end
-    self.create(data['gallery'])
   end
 end
