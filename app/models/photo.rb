@@ -3,28 +3,23 @@ require 'mini_exiftool'
 
 class Photo < ActiveRecord::Base
   belongs_to :gallery
-  mount_uploader :image, ::PhotoUploader
 
-  EXIF_DATA_MAPPING = {
-    'description' => 'title'
-  }
+  mount_uploader :image, ::PhotoUploader
 
   def self.import_from_path(path)
     file_data = MiniExiftool.new path, :convert_encoding => true
-    EXIF_DATA_MAPPING.each do |exif_tag, field|
-      if file_data[exif_tag].present?
-        field_value = file_data[exif_tag]
-      else
-        field_value = path.split('/').last
-      end
-      image = self.new
-      image.send("#{field}=".to_sym, field_value)
-      if image.save
-        return image
-      else
-        return false
-      end
+    data = {
+      :description => (file_data.description || file_data.file_name).encode('utf-8'),
+      :city => file_data.city.try(:encode, 'utf-8'),
+      :country => file_data.country(:encode, 'utf-8')
+    }
+    image = Photo.new data
+    if image.save
+      return image
+    else
+      return false
     end
   end
-
+  
+  protected
 end

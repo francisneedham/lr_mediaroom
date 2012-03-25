@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120325120415) do
+ActiveRecord::Schema.define(:version => 20120325130137) do
 
   create_table "galleries", :force => true do |t|
     t.string   "title"
@@ -22,11 +22,11 @@ ActiveRecord::Schema.define(:version => 20120325120415) do
   end
 
   create_table "photos", :force => true do |t|
-    t.string  "title"
     t.string  "description"
-    t.string  "place"
     t.string  "image"
     t.integer "gallery_id"
+    t.string  "city"
+    t.string  "country"
   end
 
 end
