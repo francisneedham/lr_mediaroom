@@ -1,4 +1,4 @@
-require File.expand_path('../../test_config', __FILE__)
+require 'test_helper'
 require 'minitest/autorun'
 
 class GalleryTest < ActiveSupport::TestCase

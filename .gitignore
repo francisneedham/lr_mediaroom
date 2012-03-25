@@ -3,6 +3,7 @@ log/*
 tmp/*
 bin/*
 db/*.db
+db/*.sqlite3
 vendor/gems/*
 !vendor/gems/cache/
 .sass-cache/*
