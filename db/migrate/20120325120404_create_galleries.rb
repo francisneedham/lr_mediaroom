@@ -1,5 +1,5 @@
 class CreateGalleries < ActiveRecord::Migration
-  def self.up
+  def up
     create_table :galleries do |t|
       t.string :title
       t.text :description
@@ -8,7 +8,7 @@ class CreateGalleries < ActiveRecord::Migration
     end
   end
 
-  def self.down
+  def down
     drop_table :galleries
   end
 end

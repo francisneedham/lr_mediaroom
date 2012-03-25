@@ -1,32 +1,40 @@
-source :rubygems
+source 'https://rubygems.org'
 
-# Server requirements
-# gem 'thin' # or mongrel
-# gem 'trinidad', :platform => 'jruby'
+gem 'rails', '3.2.2'
 
-# Project requirements
-gem 'rake'
-gem 'sinatra-flash', :require => 'sinatra/flash'
+# Bundle edge Rails instead:
+# gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-# Component requirements
-gem 'erubis', "~> 2.7.0"
-gem 'activerecord', :require => "active_record"
 gem 'sqlite3'
-
-# Test requirements
-gem 'minitest', "~>2.6.0", :require => "minitest/autorun", :group => "test"
-gem 'rack-test', :require => "rack/test", :group => "test"
-
-# Padrino Stable Gem
-gem 'padrino', '0.10.6'
 gem 'unix_utils'
 gem 'mini_exiftool'
-gem 'carrierwave', :require => %w(carrierwave carrierwave/orm/activerecord)
+gem 'carrierwave'
 
-# Or Padrino Edge
-# gem 'padrino', :git => 'git://github.com/padrino/padrino-framework.git'
+# Gems used only for assets and not required
+# in production environments by default.
+group :assets do
+  gem 'sass-rails',   '~> 3.2.3'
+  gem 'coffee-rails', '~> 3.2.1'
 
-# Or Individual Gems
-# %w(core gen helpers cache mailer admin).each do |g|
-#   gem 'padrino-' + g, '0.10.6'
-# end
+  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+  # gem 'therubyracer'
+
+  gem 'uglifier', '>= 1.0.3'
+end
+
+gem 'jquery-rails'
+
+# To use ActiveModel has_secure_password
+# gem 'bcrypt-ruby', '~> 3.0.0'
+
+# To use Jbuilder templates for JSON
+# gem 'jbuilder'
+
+# Use unicorn as the app server
+# gem 'unicorn'
+
+# Deploy with Capistrano
+# gem 'capistrano'
+
+# To use debugger
+# gem 'ruby-debug19', :require => 'ruby-debug'
