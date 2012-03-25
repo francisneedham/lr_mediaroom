@@ -9,6 +9,8 @@ gem 'sqlite3'
 gem 'unix_utils'
 gem 'mini_exiftool'
 gem 'carrierwave'
+gem 'mini_magick'
+gem 'activeadmin'
 
 # Gems used only for assets and not required
 # in production environments by default.
