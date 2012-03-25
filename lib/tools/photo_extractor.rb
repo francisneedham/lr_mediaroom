@@ -13,10 +13,7 @@ module Tools
       gallery = load_config unzipped_folder
       images = get_images unzipped_folder
       if check_contents(images, gallery)
-        gallery['images'] = []
-        images.each do |image|
-          gallery['images'] << extract_image_metadata(image)
-        end
+        gallery['images'] = images
         return gallery
       else
         raise RuntimeError, 'There seems to be some problems with the contents of the supplied archive'
@@ -42,13 +39,6 @@ module Tools
         end
       end
       return paths
-    end
-
-    def extract_image_metadata(image)
-      data = MiniExiftool.new image
-      record = {}
-      record['title'] = data['description']
-      return record
     end
 
     def unzip(path)
