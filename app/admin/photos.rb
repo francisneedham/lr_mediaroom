@@ -28,8 +28,6 @@ ActiveAdmin.register Photo do
     end
   end
 
-  form do |f|
-    render :partial => 'form'
-  end
+  form :partial => 'form'
 
 end
