@@ -1,0 +1,13 @@
+<%= semantic_form_for [:admin, @photo] do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :description %>
+    <%= f.input :city %>
+    <%= f.input :country, :as => :string %>
+    <% if @photo.image.present? %>
+      <%= image_tag @photo.image.url(:thumb) %>
+    <% end %>
+    <%= f.input :image %>
+    <%= f.input :published %>
+    <%= f.buttons %>
+  <% end %>
+<% end %>

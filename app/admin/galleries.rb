@@ -5,9 +5,7 @@ ActiveAdmin.register Gallery do
     column :title
     column :description
     column :published do |gallery|
-      status_tag do
-        gallery.published? ? 'published' : 'draft'
-      end
+      status_tag gallery.published? ? 'published' : 'draft'
     end
     default_actions
   end
@@ -22,9 +20,7 @@ ActiveAdmin.register Gallery do
           "#{photo.city} - #{photo.country}"
         end
         column 'Published' do |photo|
-          status_tag do
-            photo.published? ? 'published' : 'draft'
-          end
+          status_tag photo.published? ? 'published' : 'draft'
         end
         column 'Preview' do |photo|
           image_tag photo.image.url(:thumb)
@@ -39,9 +35,7 @@ ActiveAdmin.register Gallery do
       row :description
       row :gallery_date
       row :published do |gallery|
-        status_tag do
-          gallery.published? ? 'published' : 'draft'
-        end
+        status_tag gallery.published? ? 'published' : 'draft'
       end
     end
   end
