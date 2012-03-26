@@ -1,0 +1,17 @@
+<div class="container">
+<ul class="thumbnails">
+  <% @galleries.each do |gallery| %>
+    <li class="span3">
+    <div class="thumbnail">
+      <img src="http://placehold.it/260x180" alt="">
+      <div class="caption">
+        <%= content_tag :h5, gallery.title %>
+        <%= content_tag :p, gallery.description %>
+        <p><%= link_to 'Visualizza', gallery_path(gallery), :class => "btn btn-primary" %></p>
+
+      </div>
+    </div>
+    </li>
+  <% end %>
+</ul>
+</div>
