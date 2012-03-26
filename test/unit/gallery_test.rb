@@ -14,8 +14,7 @@ class GalleryTest < ActiveSupport::TestCase
     assert_difference "Gallery.all.count", 1 do
       path = 'test/assets/archive.zip'
       gallery = Gallery.import_from_archive(path)
-      assert_equal 'My awesome gallery', gallery.title
-      assert_equal 'ZOMG', gallery.description
+      assert_equal "#{Date.today} Gallery", gallery.title
     end
   end
 end

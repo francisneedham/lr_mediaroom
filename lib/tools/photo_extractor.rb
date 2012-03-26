@@ -10,26 +10,15 @@ module Tools
 
     def extract(path)
       unzipped_folder = unzip path
-      gallery = load_config unzipped_folder
       images = get_images unzipped_folder
-      if check_contents(images, gallery)
-        gallery['images'] = images
-        return gallery
+      if images.length > 0
+        return images
       else
         raise RuntimeError, 'There seems to be some problems with the contents of the supplied archive'
       end
     end
 
     private
-
-    def check_contents(images, record)
-      valid = false
-      valid =  images.length > 0 &&
-               record['gallery'] &&
-               !record['gallery']['title'].nil? &&
-               !record['gallery']['description'].nil? 
-      return valid
-    end
 
     def get_images(folder)
       paths = [].tap do |array|
@@ -49,13 +38,5 @@ module Tools
       end
     end
 
-    def load_config(path)
-      config_path = File.join(path, 'config.yml')
-      if File.exists?(config_path)
-        return YAML.load_file(File.join(path, 'config.yml'))
-      else
-        raise RuntimeError, 'No configuration file found in the archive'
-      end
-    end
   end
 end
