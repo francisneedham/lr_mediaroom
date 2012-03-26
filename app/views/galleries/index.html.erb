@@ -3,12 +3,12 @@
   <% @galleries.each do |gallery| %>
     <li class="span3">
     <div class="thumbnail">
-      <img src="http://placehold.it/260x180" alt="">
+      <%= image_tag gallery.photos.first.image.url(:preview), :alt => gallery.title %>
       <div class="caption">
+        <%= content_tag :p, gallery.gallery_date %>
         <%= content_tag :h5, gallery.title %>
         <%= content_tag :p, gallery.description %>
-        <p><%= link_to 'Visualizza', gallery_path(gallery), :class => "btn btn-primary" %></p>
-
+        <p><%= link_to 'Visualizza', gallery_photos_path(gallery), :class => "btn btn-primary" %></p>
       </div>
     </div>
     </li>

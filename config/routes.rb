@@ -52,7 +52,9 @@ LrMediaroom::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  resources :galleries
+  resources :galleries, :only => :index do
+    resources :photos, :only => [:index, :show]
+  end
   root :to => 'galleries#index'
 
   # See how all your routes lay out with "rake routes"

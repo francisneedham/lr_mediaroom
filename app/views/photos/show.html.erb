@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="hero-unit">
+    <%= content_tag :p, (content_tag :h1, @gallery.title) %>
+    <%= image_tag @photo.image.url(:big) %>
+    <%= content_tag :h2, @photo.description %>
+    <%= content_tag :p, "#{@photo.city} - #{@photo.country}" %>
+    <p>
+    <a class="btn btn-primary btn-large">
+      Learn more
+    </a>
+    </p>
+  </div>
+</div>
