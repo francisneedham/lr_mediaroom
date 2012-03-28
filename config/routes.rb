@@ -52,6 +52,9 @@ LrMediaroom::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
+  get '/accedi' => 'sessions#new', :as => 'new_session'
+  post '/accedi' => 'sessions#create', :as => 'create_session'
+  get  '/esci' => 'sessions#destroy', :as => 'destroy_session'
   resources :galleries, :only => :index do
     resources :photos, :only => [:index, :show]
   end

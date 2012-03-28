@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row-fluid">
+    <div class="span3">&nbsp;</div>
+    <div class="span6">
+      <h2>Accedi a LR Mediaroom!</h2>
+      <%= form_tag create_session_path, :method => :post, :html => { :class => 'well form-inline' } do %>
+        <fieldset>
+          <div class="control-group <%= 'error' if flash[:alert].present? %>">
+            <%= label_tag :email %>
+            <div class="controls">
+              <%= text_field_tag :email %>
+              <% if flash[:alert].present? %>
+                <span class="help-inline"><%= flash[:alert] %></span>
+              <% end %>
+            </div>
+          </div>
+          <%= submit_tag 'Accedi' %>
+        </fieldset>
+      <% end %>
+    </div>
+    <div class="span3">&nbsp;</div>
+  </div>
+</div>

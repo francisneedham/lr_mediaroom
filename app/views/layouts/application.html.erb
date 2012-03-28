@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="it">
 <head>
   <title>LrMediaroom</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
@@ -7,15 +7,33 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<% if flash[:notice].present? %>
+  <div class="container">
+    <div class="alert alert-success">
+      <h4 class="alert-heading"><%= flash[:notice] %></h4>
+    </div>
+  </div>
+<% end %>
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">Project name</a>
-      <ul class="nav">
-        <li class="active">
+      <div class="nav-collapse">
+        <a class="brand" href="#">Project name</a>
+        <ul class="nav">
+          <li class="active">
           <a href="#">Galleries</a>
-        </li>
-      </ul>
+          </li>
+        </ul>
+        <ul class="nav pull-right">
+          <% if current_user %>
+            <li class="welcome"><p>Benvenuto <%= current_user.email %></p></li>
+            <li class="divider-vertical"></li>
+            <li><%= link_to 'Esci', destroy_session_path %></li>
+          <% else %>
+            <li><%= link_to 'Accedi', new_session_path %></li>
+          <% end %>
+        </ul>
+    </div>
     </div>
   </div>
 </div>
