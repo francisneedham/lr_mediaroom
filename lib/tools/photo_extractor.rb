@@ -1,4 +1,3 @@
-require 'YAML'
 require 'unix_utils'
 require 'mini_exiftool'
 
