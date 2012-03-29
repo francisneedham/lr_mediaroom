@@ -8,3 +8,4 @@ db/*.sqlite3
 vendor/gems/*
 !vendor/gems/cache/
 .sass-cache/*
+Procfile
