@@ -1,13 +1,17 @@
 <div class="container">
-  <div class="hero-unit">
-    <%= content_tag :p, (content_tag :h1, @gallery.title) %>
-    <%= image_tag @photo.image.url(:big) %>
-    <%= content_tag :h2, @photo.description %>
-    <%= content_tag :p, "#{@photo.city} - #{@photo.country}" %>
-    <p>
+  <div class="page-header">
+    <%= content_tag :h2, @gallery.title %>
+    <%= content_tag :h1, @photo.description %>
+  </div>
+  <div class="row-fluid">
+    <div class="span12">
+      <%= image_tag @photo.image.url(:big) %>
+    </div>
+  </div>
+  <%= content_tag :p, "Scattata a: #{@photo.city} (#{@photo.country})" %>
+  <p>
     <a class="btn btn-primary btn-large">
       Learn more
     </a>
-    </p>
-  </div>
+  </p>
 </div>

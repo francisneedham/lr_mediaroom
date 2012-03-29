@@ -4,6 +4,8 @@ require 'mini_exiftool'
 class Photo < ActiveRecord::Base
   belongs_to :gallery
 
+  scope :published, where(:published => true)
+
   mount_uploader :image, ::PhotoUploader
 
   def self.import_from_path(path)

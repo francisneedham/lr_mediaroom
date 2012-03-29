@@ -24,6 +24,9 @@
             <%= link_to 'Gallerie di immagini', galleries_path %>
           </li>
         </ul>
+        <%= form_tag search_path,:method => :get, :class => 'navbar-search pull-left' do %>
+          <%= text_field_tag 'q', nil, :class => 'search-query', :placeholder => 'Cerca' %>
+        <% end %>
         <ul class="nav pull-right">
           <% if current_user %>
             <li class="welcome"><p>Benvenuto <%= current_user.email %></p></li>

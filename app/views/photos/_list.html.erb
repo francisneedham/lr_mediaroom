@@ -1,0 +1,14 @@
+<ul class="thumbnails">
+  <% photos.each do |photo| %>
+    <li class="span3">
+    <div class="thumbnail">
+      <%= image_tag photo.image.url(:preview), :alt => photo.description %>
+      <div class="caption">
+        <%= content_tag :h5, photo.description %>
+        <%= content_tag :p, "#{photo.city} - #{photo.country}" %>
+        <p><%= link_to 'Visualizza', gallery_photo_path(photo.gallery_id, photo), :class => "btn btn-primary" %></p>
+      </div>
+    </div>
+    </li>
+  <% end %>
+</ul>

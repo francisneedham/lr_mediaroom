@@ -3,6 +3,8 @@ require 'tools/photo_extractor'
 class Gallery < ActiveRecord::Base
   has_many :photos
 
+  scope :published, where(:published => true)
+
   def self.import_from_archive(path)
     begin
       images = Tools::PhotoExtractor.extract(path)

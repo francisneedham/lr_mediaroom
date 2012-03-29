@@ -1,17 +1,20 @@
 <div class="container">
-<ul class="thumbnails">
-  <% @galleries.each do |gallery| %>
-    <li class="span3">
-    <div class="thumbnail">
-      <%= image_tag gallery.photos.first.image.url(:preview), :alt => gallery.title %>
-      <div class="caption">
-        <%= content_tag :p, gallery.gallery_date %>
-        <%= content_tag :h5, gallery.title %>
-        <%= content_tag :p, gallery.description %>
-        <p><%= link_to 'Visualizza', gallery_photos_path(gallery), :class => "btn btn-primary" %></p>
+  <div class="page-header">
+    <h1>Gallerie di foto</h1>
+  </div>
+  <ul class="thumbnails">
+    <% @galleries.each do |gallery| %>
+      <li class="span3">
+      <div class="thumbnail">
+        <%= image_tag gallery.photos.first.image.url(:preview), :alt => gallery.title %>
+        <div class="caption">
+          <%= content_tag :p, gallery.gallery_date %>
+          <%= content_tag :h5, gallery.title %>
+          <%= content_tag :p, gallery.description %>
+          <p><%= link_to 'Visualizza', gallery_photos_path(gallery), :class => "btn btn-primary" %></p>
+        </div>
       </div>
-    </div>
-    </li>
-  <% end %>
-</ul>
+      </li>
+    <% end %>
+  </ul>
 </div>
