@@ -2,7 +2,7 @@
   <% photos.each do |photo| %>
     <li class="span3">
     <div class="thumbnail">
-      <%= image_tag photo.image.url(:preview), :alt => photo.description %>
+      <%= link_to (image_tag photo.image.url(:preview), :alt => photo.description), gallery_photo_path(photo.gallery_id, photo) %>
       <div class="caption">
         <%= content_tag :h5, photo.description %>
         <%= content_tag :p, "#{photo.city} - #{photo.country}" %>
