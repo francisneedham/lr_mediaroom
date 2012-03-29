@@ -14,7 +14,8 @@ class Photo < ActiveRecord::Base
       :description => (file_data.description || file_data.file_name).encode('utf-8'),
       :city => file_data.city.try(:encode, 'utf-8'),
       :country => file_data.country(:encode, 'utf-8'),
-      :image => File.open(path)
+      :image => File.open(path),
+      :published => true
     }
     image = Photo.new data
     if image.save

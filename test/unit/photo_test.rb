@@ -22,6 +22,7 @@ class PhotoTest < ActiveSupport::TestCase
     assert_equal 'Pradello, Bellano, 29/01/12.Campanile della chiesa di Pradello.Photo: © Carlo Borlenghi', image.description
     assert_equal 'Pradello, Bellano', image.city
     assert_equal 'ITA', image.country
+    assert image.published
   end
 
 
