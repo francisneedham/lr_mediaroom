@@ -1,7 +1,7 @@
 require 'tools/photo_extractor'
 
 class Gallery < ActiveRecord::Base
-  has_many :photos
+  has_many :photos, :dependent => :destroy
 
   scope :published, where(:published => true)
 
