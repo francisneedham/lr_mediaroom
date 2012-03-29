@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120326090239) do
+ActiveRecord::Schema.define(:version => 20120329075518) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -55,6 +55,8 @@ ActiveRecord::Schema.define(:version => 20120326090239) do
     t.boolean  "published"
   end
 
+  add_index "galleries", ["published"], :name => "index_galleries_on_published"
+
   create_table "photos", :force => true do |t|
     t.string  "description"
     t.string  "image"
@@ -63,5 +65,8 @@ ActiveRecord::Schema.define(:version => 20120326090239) do
     t.string  "country"
     t.boolean "published"
   end
+
+  add_index "photos", ["gallery_id"], :name => "index_photos_on_gallery_id"
+  add_index "photos", ["published"], :name => "index_photos_on_published"
 
 end

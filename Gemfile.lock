@@ -112,6 +112,7 @@ GEM
     multi_json (1.1.0)
     multi_xml (0.4.2)
     orm_adapter (0.0.7)
+    pg (0.13.2)
     polyamorous (0.5.0)
       activerecord (~> 3.0)
     polyglot (0.3.3)
@@ -185,6 +186,7 @@ DEPENDENCIES
   jquery-rails
   mini_exiftool
   mini_magick
+  pg
   rails (= 3.2.2)
   sass-rails (~> 3.2.3)
   sqlite3
