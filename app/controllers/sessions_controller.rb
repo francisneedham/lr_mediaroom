@@ -6,7 +6,8 @@ class SessionsController < ApplicationController
     user = User.authenticate(params[:email])
     if user
       session[:user] = user.email
-      redirect_to root_path, :notice => 'Autenticazione completata con successo!'
+      redirect_path = session.delete(:return_to) || root_path
+      redirect_to redirect_path, :notice => 'Autenticazione completata con successo!'
     else
       flash.now.alert = 'Indirizzo email non riconosciuto.'
       render :new

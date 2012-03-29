@@ -9,9 +9,5 @@
     </div>
   </div>
   <%= content_tag :p, "Scattata a: #{@photo.city} (#{@photo.country})" %>
-  <p>
-    <a class="btn btn-primary btn-large">
-      Learn more
-    </a>
-  </p>
+  <%= content_tag :p, link_to('Scarica versione originale', download_gallery_photo_path(@gallery, @photo.id), :class => 'btn btn-primary btn-large', :target => '_blank') %>
 </div>
