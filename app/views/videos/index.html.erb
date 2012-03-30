@@ -1,0 +1,16 @@
+<div class="page-header">
+  <ul class="thumbnails">
+    <% @videos.each do |video| %>
+      <li class="span3">
+      <div class="thumbnail">
+        <%= link_to (image_tag video.cover.url, :alt => video.description), video_path(video.id) %>
+        <div class="caption">
+          <%= content_tag :h5, video.description %>
+          <%= content_tag :p, "#{video.city} - #{video.country}" %>
+          <p><%= link_to 'Open', video_path(video.id), :class => "btn btn-danger" %></p>
+        </div>
+      </div>
+      </li>
+    <% end %>
+  </ul>
+</div>

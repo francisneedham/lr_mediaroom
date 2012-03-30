@@ -26,6 +26,9 @@
           <li class="<%= 'active' if controller.controller_name =~ /^galleries|photos$/ %>">
             <%= link_to 'Photos', galleries_path %>
           </li>
+          <li class="<%= 'active' if controller.controller_name =~ /^videos$/ %>">
+            <%= link_to 'Videos', videos_path %>
+          </li>
         </ul>
         <%= form_tag search_path,:method => :get, :class => 'navbar-search pull-left' do %>
           <%= text_field_tag 'q', nil, :class => 'search-query', :placeholder => 'Cerca' %>
