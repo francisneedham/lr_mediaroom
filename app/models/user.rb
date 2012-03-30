@@ -7,7 +7,7 @@ class User
   
   def self.authenticate(email)
     mailchimp = Gibbon.new('e9bfe9fb82eeba0fd75c7e012e33f859-us4')
-    lists = ["18ab2f9e6d", "c6bc1cdbaf"]
+    lists = ["50dbfac20c"]
     lists.each do |list|
       user_info = mailchimp.listMemberInfo :id => list, :email_address => email
       return self.new(:email => email) if user_info['success'] == 1
