@@ -25,6 +25,9 @@ ActiveAdmin.register Gallery do
         column 'Preview' do |photo|
           image_tag photo.image.url(:thumb)
         end
+        column "Actions" do |photo|
+          link_to "Edit", edit_admin_photo_path(photo)
+        end
       end
     end
   end
