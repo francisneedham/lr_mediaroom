@@ -1,8 +1,6 @@
-<div class="container">
   <div class="page-header">
     <%= content_tag :h1, @gallery.title %>
     <%= content_tag :p, @gallery.gallery_date %>
     <%=simple_format content_tag :p, @gallery.description %>
   </div>
   <%= render :partial => 'list', :locals => { :photos => @photos } %>
-</div>

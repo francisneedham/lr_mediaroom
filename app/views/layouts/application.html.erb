@@ -7,21 +7,24 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="container">
 <% if flash[:notice].present? %>
-<div class="container">
   <div class="alert alert-success">
     <h4 class="alert-heading"><%= flash[:notice] %></h4>
   </div>
-</div>
 <% end %>
-<div class="navbar navbar-fixed-top">
+
+<div class="page-header">
+  <h1><img src="/logolr.png"></h1>
+</div>
+<div class="navbar">
   <div class="navbar-inner">
     <div class="container">
       <div class="nav-collapse">
-        <%= link_to "LR Media Room", root_path, :class => 'brand' %>
+        <%= link_to "Media Room", root_path, :class => 'brand' %>
         <ul class="nav">
           <li class="<%= 'active' if controller.controller_name =~ /^galleries|photos$/ %>">
-            <%= link_to 'Gallerie di immagini', galleries_path %>
+            <%= link_to 'Photos', galleries_path %>
           </li>
         </ul>
         <%= form_tag search_path,:method => :get, :class => 'navbar-search pull-left' do %>
@@ -39,7 +42,11 @@
       </div>
     </div>
   </div>
-</div>
+
 <%= yield %>
+<footer class="footer">
+  <p>© Lunarossa Challange 2012</p>
+</footer>
+</div>
 </body>
 </html>

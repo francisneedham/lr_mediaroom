@@ -10,4 +10,14 @@
  *
  *= require_self
  *= require bootstrap_and_overrides.css
+ *= require spacelab.css
 */
+footer {
+display: block;
+margin-left:auto;
+margin-right:auto;
+text-align:right;
+border-top:1px solid #ccc;
+padding-top:5px;
+margin-top:5px;
+}
