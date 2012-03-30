@@ -1,0 +1,16 @@
+<%= semantic_form_for [:admin, @video], :html => { :multipart => true } do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :description %>
+    <%= f.input :city %>
+    <%= f.input :country, :as => :string %>
+    <% if @video.cover.present? %>
+      <%= image_tag @video.cover.url %>
+    <% end %>
+    <%= f.input :cover %>
+    <% 2.times do |i| %>
+      <%= f.input "attachment_#{i+1}_label".to_sym %>
+      <%= f.input "attachment_#{i+1}".to_sym, :as => :select, :collection => Video.uploaded_files %>
+    <% end %>
+    <%= f.buttons %>
+  <% end %>
+<% end %>
