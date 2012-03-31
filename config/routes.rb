@@ -56,7 +56,11 @@ LrMediaroom::Application.routes.draw do
   get '/accedi' => 'sessions#new', :as => 'new_session'
   post '/accedi' => 'sessions#create', :as => 'create_session'
   get  '/esci' => 'sessions#destroy', :as => 'destroy_session'
-  resources :videos, :only => [:index]
+  resources :videos, :only => [:index] do
+    member do
+      get '/download' => 'videos#download', :as => 'download_attachment'
+    end
+  end
   resources :galleries, :only => :index do
     resources :photos, :only => [:index, :show] do
       get 'download-originale' => 'photos#download', :on => :member, :as => 'download'
