@@ -43,4 +43,15 @@ ActiveAdmin.register Gallery do
     end
   end
 
+  collection_action :upload, :method => :get
+  collection_action :import, :method => :post do
+    path = File.join(Gallery::UPLOAD_FOLDER, params[:archive_name])
+    ::Delayed::Job.enqueue UploadGalleryJob.new(path)
+    redirect_to admin_galleries_path, :notice => 'Galleria importata con sucesso!'
+  end
+
+  action_item :only => :index do
+    link_to('Upload Gallery', upload_admin_galleries_path)
+  end
+
 end
