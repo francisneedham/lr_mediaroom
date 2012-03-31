@@ -5,6 +5,7 @@ class Video < ActiveRecord::Base
   mount_uploader :cover, VideoCoverUploader
   
   scope :published, where(:published => true)
+  scope :recent, order('id DESC').limit(5)
   
   def self.uploaded_files
     @uploaded_files ||= []

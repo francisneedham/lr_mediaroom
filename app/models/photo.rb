@@ -5,6 +5,7 @@ class Photo < ActiveRecord::Base
   belongs_to :gallery
 
   scope :published, where(:published => true)
+  scope :recent, order('id DESC').limit(5)
 
   mount_uploader :image, ::PhotoUploader
 
