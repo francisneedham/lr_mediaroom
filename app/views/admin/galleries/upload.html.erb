@@ -1,0 +1,20 @@
+<%= form_tag :controller => 'admin/galleries', :action => :import do %>
+  <fieldset class="inputs">
+    <ol>
+      <li class="string input optional">
+        <%= label_tag :path %>
+        <%= select_tag :archive_name, options_for_select(Gallery.uploaded_files) %>
+      </li>
+    </ol>
+  </fieldset>
+  <fieldset class="buttons">
+    <ol>
+      <li class="commit button">
+        <input class="create" id="gallery_submit" name="commit" type="submit" value="Upload Gallery">
+      </li>
+      <li class="cancel">
+        <%= link_to 'Cancella', admin_galleries_path %>
+      </li>
+    </ol>
+  </fieldset>
+<% end %>

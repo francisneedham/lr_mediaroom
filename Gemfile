@@ -17,6 +17,7 @@ gem "twitter-bootstrap-rails"
 gem 'gibbon'
 gem 'pg'
 gem 'texticle', '~> 2.0', :require => 'texticle/rails'
+gem 'delayed_job_active_record'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
