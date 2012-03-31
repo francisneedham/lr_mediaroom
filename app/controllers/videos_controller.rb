@@ -1,4 +1,5 @@
 class VideosController < ApplicationController
+  before_filter :require_authentication
   def index
     @videos  = Video.published
   end
