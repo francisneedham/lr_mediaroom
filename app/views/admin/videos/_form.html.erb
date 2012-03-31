@@ -2,6 +2,7 @@
   <%= f.inputs do %>
     <%= f.input :description %>
     <%= f.input :city %>
+    <%= f.input :video_date %>
     <%= f.input :country, :as => :string %>
     <% if @video.cover.present? %>
       <%= image_tag @video.cover.url %>
@@ -11,6 +12,7 @@
       <%= f.input "attachment_#{i+1}_label".to_sym %>
       <%= f.input "attachment_#{i+1}".to_sym, :as => :select, :collection => Video.uploaded_files %>
     <% end %>
+    <%= f.input :published %>
     <%= f.buttons %>
   <% end %>
 <% end %>

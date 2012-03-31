@@ -2,14 +2,14 @@ ActiveAdmin.register Photo do
   index do
     id_column
     column :description
-    column :published do |photo|
-      status_tag photo.published? ? 'published' : 'draft'
-    end
     column "Location", :sortable => :city do |photo|
       "#{photo.city} - #{photo.country}"
     end
     column :preview do |photo|
       image_tag photo.image.url(:thumb)
+    end
+    column :published do |photo|
+      status_tag photo.published? ? 'published' : 'draft'
     end
     default_actions
   end

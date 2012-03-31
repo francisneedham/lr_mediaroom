@@ -4,6 +4,8 @@ class Video < ActiveRecord::Base
 
   mount_uploader :cover, VideoCoverUploader
   
+  scope :published, where(:published => true)
+  
   def self.uploaded_files
     @uploaded_files ||= []
     if @uploaded_files.empty?

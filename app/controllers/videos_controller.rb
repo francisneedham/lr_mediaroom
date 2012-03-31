@@ -1,5 +1,5 @@
 class VideosController < ApplicationController
   def index
-    @videos  = Video.all
+    @videos  = Video.published
   end
 end
