@@ -36,6 +36,8 @@ namespace :deploy do
     sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/#{application}"
     sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{application}"
     run "mkdir -p #{shared_path}/config"
+    run "mkdir -p #{shared_path}/media/videos"
+    run "mkdir -p #{shared_path}/media/galleries"
     put File.read("config/database.example.yml"), "#{shared_path}/config/database.yml"
     puts "Now edit the config files in #{shared_path}."
   end
@@ -46,6 +48,14 @@ namespace :deploy do
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
   end
   after "deploy:finalize_update", "deploy:symlink_config"
+
+  task :symlink_media_files, roles: :app do
+    run "rm #{release_path}/videos"
+    run "ln -nfs #{shared_path}/media/videos #{release_path}/videos"
+    run "rm #{release_path}/galleries"
+    run "ln -nfs #{shared_path}/media/galleries #{release_path}/galleries"
+  end
+  after "deploy:finalize_update", "deploy:symlink_media_files"
 
   desc "Make sure local git is in sync with remote."
   task :check_revision, roles: :web do
