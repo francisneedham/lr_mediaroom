@@ -49,7 +49,7 @@ namespace :deploy do
   end
   after "deploy:finalize_update", "deploy:symlink_config"
 
-  task :symlink_media_files, roles: :app do
+  task :symlink_media_files, roles: :app, on_error: :continue do
     run "rm #{release_path}/videos 2> /dev/null"
     run "ln -nfs #{shared_path}/media/videos #{release_path}/videos"
     run "rm #{release_path}/galleries 2>/dev/null"
