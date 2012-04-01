@@ -17,6 +17,13 @@ ssh_options[:forward_agent] = true
 
 after "deploy", "deploy:cleanup" # keep only the last 5 releases
 
+namespace :delayed_job do 
+    desc "Restart the delayed_job process"
+    task :restart, :roles => :app do
+        run "cd #{current_path}; RAILS_ENV=#{rails_env} script/delayed_job restart"
+    end
+end
+after "deploy:update_code", "delayed_job:restart"
 namespace :deploy do
   %w[start stop restart].each do |command|
     desc "#{command} unicorn server"
