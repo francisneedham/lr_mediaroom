@@ -50,9 +50,9 @@ namespace :deploy do
   after "deploy:finalize_update", "deploy:symlink_config"
 
   task :symlink_media_files, roles: :app do
-    run "rm #{release_path}/videos"
+    run "rm -fr #{release_path}/videos"
     run "ln -nfs #{shared_path}/media/videos #{release_path}/videos"
-    run "rm #{release_path}/galleries"
+    run "rm -fr #{release_path}/galleries"
     run "ln -nfs #{shared_path}/media/galleries #{release_path}/galleries"
   end
   after "deploy:finalize_update", "deploy:symlink_media_files"
