@@ -22,6 +22,24 @@ ActiveAdmin::Dashboards.build do
       end
     end
   end
+
+  section "Gallery imports" do
+    now = Time.now.getgm
+    ul do
+      li do
+        jobs = Delayed::Job.where('failed_at is not null').count(:id)
+        link_to "#{jobs} failing jobs", admin_jobs_path(q: {failed_at_is_not_null: true}), style: 'color: red'
+      end
+      li do
+        jobs = Delayed::Job.where('run_at <= ?', now).count(:id)
+        link_to "#{jobs} late jobs", admin_jobs_path(q: {run_at_lte: now.to_s(:db)}), style: 'color: hsl(40, 100%, 40%)'
+      end
+      li do
+        jobs = Delayed::Job.where('run_at >= ?', now).count(:id)
+        link_to "#{jobs} scheduled jobs", admin_jobs_path(q: {run_at_gte: now.to_s(:db)}), style: 'color: green'
+      end
+    end
+  end
   
   # == Render Partial Section
   # The block is rendered within the context of the view, so you can
