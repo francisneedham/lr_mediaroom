@@ -1,4 +1,4 @@
-ActiveAdmin.register Delayed::Job, as: 'Gallery imports' do
+ActiveAdmin.register Delayed::Job, as: "Import status" do
 
   actions :index, :show, :edit, :destroy
 
