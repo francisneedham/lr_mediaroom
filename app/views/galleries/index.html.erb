@@ -1,19 +1,19 @@
-
-  <div class="page-header">
-    <h1>Photo Galleries</h1>
-  </div>
-  <ul class="thumbnails">
-    <% @galleries.each do |gallery| %>
-      <li class="span3">
-      <div class="thumbnail">
-        <%= link_to (image_tag gallery.photos.first.image.url(:preview), :alt => gallery.title), gallery_photos_path(gallery) %>
-        <div class="caption">
-          <%= content_tag :p, gallery.gallery_date %>
-          <%= content_tag :h5, gallery.title %>
-          <%= content_tag :p, gallery.description %>
-          <p><%= link_to 'View', gallery_photos_path(gallery), :class => "btn btn-danger" %></p>
-        </div>
+<div class="page-header">
+  <h1>Photo Galleries</h1>
+</div>
+<ul class="thumbnails">
+  <% @galleries.each do |gallery| %>
+    <li class="span3">
+    <div class="thumbnail">
+      <%= link_to (image_tag gallery.photos.first.image.url(:preview), :alt => gallery.title), gallery_photos_path(gallery) %>
+      <div class="caption">
+        <%= content_tag :p, gallery.gallery_date %>
+        <%= content_tag :h5, gallery.title %>
+        <%= content_tag :p, gallery.description %>
+        <p><%= link_to 'View', gallery_photos_path(gallery), :class => "btn btn-danger" %></p>
       </div>
-      </li>
-    <% end %>
-  </ul>
+    </div>
+    </li>
+  <% end %>
+</ul>
+<%= will_paginate @galleries %>
