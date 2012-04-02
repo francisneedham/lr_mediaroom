@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
       else
         session[:return_to] = request.url
       end
-      redirect_to new_session_path, :alert => 'Devi loggarti per accedere al contenuto richiesto.'
+      redirect_to new_session_path, :alert => 'To view this content you have to login'
     end
   end
 end

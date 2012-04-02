@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <title>LrMediaroom</title>
+  <title>Luna Rossa Media Room</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -35,11 +35,11 @@
         <% end %>
         <ul class="nav pull-right">
           <% if current_user %>
-            <li class="welcome"><p>Benvenuto <%= current_user.email %></p></li>
+            <li class="welcome"><p>Welcome <%= current_user.email %></p></li>
             <li class="divider-vertical"></li>
-            <li><%= link_to 'Esci', destroy_session_path %></li>
+            <li><%= link_to 'Exit', destroy_session_path %></li>
           <% else %>
-            <li><%= link_to 'Accedi', new_session_path %></li>
+            <li><%= link_to 'Login', new_session_path %></li>
           <% end %>
         </ul>
       </div>
@@ -48,7 +48,7 @@
 
 <%= yield %>
 <footer class="footer">
-  <p>© Lunarossa Challange 2012</p>
+  <p>© Copyright Luna Rossa Challenge 2013 srl - P. IVA 01500090533 | <a href="http://www.americascup.com/en/Teams/Luna-Rossa-Challenge-2013/Footer/nicola-davanzo/" target="_blank">CONTACT PRESS OFFICE</a></p>
 </footer>
 </div>
 </body>

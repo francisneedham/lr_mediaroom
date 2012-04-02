@@ -7,15 +7,15 @@ class SessionsController < ApplicationController
     if user
       session[:user] = user.email
       redirect_path = session.delete(:return_to) || root_path
-      redirect_to redirect_path, :notice => 'Autenticazione completata con successo!'
+      redirect_to redirect_path, :notice => 'Logged in!'
     else
-      flash.now.alert = 'Indirizzo email non riconosciuto.'
+      flash.now.alert = 'The provided email address is not in our database'
       render :new
     end
   end
 
   def destroy
     session[:user] = nil
-    redirect_to root_path, :notice => 'Sei uscito correttamente'
+    redirect_to root_path, :notice => 'Logout succesfully'
   end
 end

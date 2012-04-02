@@ -1,12 +1,21 @@
 
   <div class="page-header">
     <%= content_tag :h2, @gallery.title %>
-    <%= content_tag :h1, @photo.description %>
-  </div>
-  <div class="row-fluid">
+    </div>
+
+  <ul class="nav nav-pills">
+  <li>
+      <% if Photo.find_by_id(@photo.id+1) %><%= link_to 'Prev', gallery_photo_path(@gallery, @photo.id+1), :class => "" %><% end %>
+
+  </li>
+  <li><% if Photo.find_by_id(@photo.id-1) %><%= link_to 'Next', gallery_photo_path(@gallery, @photo.id-1), :class => "" %><% end %></li>
+</ul>
+
+  <div class="row-fluid" style="margin-top:5px">
     <div class="span12">
       <%= image_tag @photo.image.url(:big) %>
     </div>
   </div>
+  <%= content_tag :p, @photo.description %>
   <%= content_tag :p, "Shot in #{@photo.city} (#{@photo.country})" %>
   <%= content_tag :p, link_to('Download full size', download_gallery_photo_path(@gallery, @photo.id), :class => 'btn btn-danger btn-large', :target => '_blank') %>
