@@ -67,7 +67,7 @@ LrMediaroom::Application.routes.draw do
     end
   end
   root :to => 'galleries#index'
-
+  match "/signup" => redirect("http://eepurl.com/kvmXv"), :as => :signup
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
