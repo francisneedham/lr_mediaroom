@@ -10,4 +10,5 @@ vendor/gems/*
 .sass-cache/*
 Procfile
 videos/*
+.rvmrc
 galleries/*
