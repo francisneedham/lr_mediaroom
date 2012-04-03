@@ -5,12 +5,12 @@ class PhotosController < ApplicationController
     @photos = @gallery.photos
                       .published
                       .order(:description)
-                      .paginate(:per_page => 20, :page => params[:page] || 1)
+                      .page(params[:page]).per(20)
   end
 
   def search
     @photos = Photo.search_by_description(params[:q])
-                   .paginate(:per_page => 20, :page => params[:page] || 1)
+                   .page(params[:page]).per(20)
   end
 
   def show
