@@ -4,7 +4,7 @@ require 'minitest/autorun'
 class GalleryTest < ActiveSupport::TestCase
 
   def test_import_from_invalid_archive
-    assert_difference "Gallery.all.count", 0 do
+    assert_raise RuntimeError do
       path = 'test/assets/invalid_archive.zip'
       refute Gallery.import_from_archive(path)
     end

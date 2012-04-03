@@ -19,15 +19,13 @@ class Gallery < ActiveRecord::Base
   end
 
   def self.import_from_archive(path)
-    begin
+    ActiveRecord::Base.transaction do
       images = Tools::PhotoExtractor.extract(path)
       gallery = self.create :title => "#{Date.today} Gallery"
       images.each do |image|
         gallery.photos << Photo.import_from_path(image)
       end
       return gallery
-    rescue
-      return false
     end
   end
 end
