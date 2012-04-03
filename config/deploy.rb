@@ -38,6 +38,7 @@ namespace :deploy do
     run "mkdir -p #{shared_path}/config"
     run "mkdir -p #{shared_path}/media/videos"
     run "mkdir -p #{shared_path}/media/galleries"
+    run "mkdir -p #{shared_path}/media/uploads"
     put File.read("config/database.example.yml"), "#{shared_path}/config/database.yml"
     puts "Now edit the config files in #{shared_path}."
   end
@@ -54,6 +55,8 @@ namespace :deploy do
     run "ln -nfs #{shared_path}/media/videos #{release_path}/videos"
     run "rm -fr #{release_path}/galleries"
     run "ln -nfs #{shared_path}/media/galleries #{release_path}/galleries"
+    run "rm -fr #{release_path}/public/uploads"
+    run "ln -nfs #{shared_path}/uploads #{release_path}/public/uploads"
   end
   after "deploy:finalize_update", "deploy:symlink_media_files"
 

@@ -28,4 +28,9 @@ class Gallery < ActiveRecord::Base
       return gallery
     end
   end
+
+  def cover
+    gallery_photos = self.photos.published
+    return gallery_photos.cover.first || gallery_photos.first
+  end
 end

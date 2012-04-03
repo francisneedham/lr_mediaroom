@@ -21,7 +21,7 @@ module Tools
 
     def get_images(folder)
       paths = [].tap do |array|
-        file_names = Dir.open(folder).to_a.select{|file| file =~ /^[1-9A-Za-z].+\.jpe?g|png|gif|tiff$/} - ['config.yml']
+        file_names = Dir.open(folder).to_a.select{|file| file =~ /^[1-9A-Za-z].*\.jpe?g|png|gif|tiff$/} - ['config.yml']
         file_names.each do |file_name|
           array << File.join(folder, file_name)
         end
