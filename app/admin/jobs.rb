@@ -44,10 +44,10 @@ ActiveAdmin.register Delayed::Job, as: "Import status" do
   end
 
   action_item :only => [:show, :edit] do
-    link_to 'Delete', admin_job_path(@job), 'data-method' => :delete, 'data-confirm' => 'Are you sure?'
+    link_to 'Delete', admin_import_status_path(@job), 'data-method' => :delete, 'data-confirm' => 'Are you sure?'
   end
 
   action_item :only => [:show, :edit] do
-    link_to 'Schedule now', run_now_admin_job_path(@job), 'data-method' => :post
+    link_to 'Schedule now', run_now_admin_import_status_path(@job), 'data-method' => :post
   end
 end
