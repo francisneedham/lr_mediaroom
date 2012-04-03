@@ -26,6 +26,14 @@ class Photo < ActiveRecord::Base
       return false
     end
   end
+
+  def next
+    self.gallery.photos.where("id > ?", self.id).order('id ASC').first
+  end
+
+  def prev
+    self.gallery.photos.where("id < ?", self.id).order('id DESC').first
+  end
   
   protected
 end
