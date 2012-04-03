@@ -55,7 +55,7 @@ namespace :deploy do
     run "rm -fr #{release_path}/galleries"
     run "ln -nfs #{shared_path}/media/galleries #{release_path}/galleries"
     run "rm -fr #{release_path}/public/uploads"
-    run "ln -nfs #{shared_path}/uploads #{release_path}/public/uplaods"
+    run "ln -nfs #{shared_path}/uploads #{release_path}/public/uploads"
   end
   after "deploy:finalize_update", "deploy:symlink_media_files"
 

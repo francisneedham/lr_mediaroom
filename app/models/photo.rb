@@ -6,6 +6,7 @@ class Photo < ActiveRecord::Base
 
   scope :published, where(:published => true)
   scope :recent, order('id DESC').limit(5)
+  scope :cover, where(:cover => true).order('id DESC').limit(1)
 
   mount_uploader :image, ::PhotoUploader
 
