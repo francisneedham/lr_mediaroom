@@ -5,7 +5,7 @@
   <% @videos.each do |video| %>
     <li class="span3">
     <div class="thumbnail">
-      <%= image_tag video.cover.url, :alt => video.description) %>
+      <%= image_tag video.cover.url, :alt => video.description %>
       <div class="caption">
         <%= content_tag :h5, video.description %>
         <%= content_tag :p, "#{video.city} - #{video.country}" %>
