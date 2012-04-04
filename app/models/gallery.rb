@@ -7,6 +7,7 @@ class Gallery < ActiveRecord::Base
   has_many :photos, :dependent => :destroy
 
   scope :published, where(:published => true)
+  default_scope :order => "gallery_date DESC"
 
   def self.uploaded_files
     @uploaded_files ||= []
