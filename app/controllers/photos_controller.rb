@@ -4,7 +4,7 @@ class PhotosController < ApplicationController
     @gallery = Gallery.find(params[:gallery_id])
     @photos = @gallery.photos
                       .published
-                      .order(:description)
+                      .order('id ASC')
                       .page(params[:page]).per(20)
   end
 

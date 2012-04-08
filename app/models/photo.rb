@@ -6,6 +6,7 @@ class Photo < ActiveRecord::Base
 
   scope :published, where(:published => true)
   scope :recent, order('id DESC').limit(5)
+  scope :cover, where(:cover => true).order('id DESC').limit(1)
 
   mount_uploader :image, ::PhotoUploader
 
@@ -24,6 +25,14 @@ class Photo < ActiveRecord::Base
     else
       return false
     end
+  end
+
+  def next
+    self.gallery.photos.where("id > ?", self.id).order('id ASC').first
+  end
+
+  def prev
+    self.gallery.photos.where("id < ?", self.id).order('id DESC').first
   end
   
   protected
