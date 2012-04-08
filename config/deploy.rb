@@ -1,6 +1,10 @@
 require "bundler/capistrano"
 
-server "178.79.130.150", :web, :app, :db, primary: true
+# linode
+#server "178.79.130.150", :web, :app, :db, primary: true
+
+# aruba
+server "95.110.158.77", :web, :app, :db, primary: true
 
 set :application, "lr_mediaroom"
 set :user, "deployer"
