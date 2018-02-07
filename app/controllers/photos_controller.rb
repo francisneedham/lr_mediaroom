@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
-  before_filter :require_authentication, :only => [:download]
+  #before_filter :require_authentication, :only => [:download]
   def index 
     @gallery = Gallery.find(params[:gallery_id])
     @photos = @gallery.photos
