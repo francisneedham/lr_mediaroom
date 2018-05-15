@@ -16,6 +16,7 @@ gem 'pg'
 gem 'texticle', '~> 2.0', :require => 'texticle/rails'
 gem 'delayed_job_active_record'
 gem "daemons"
+gem 'therubyracer'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
