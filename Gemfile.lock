@@ -207,14 +207,16 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activeadmin
-  capistrano
+  activeadmin (= 0.4.3)
+  capistrano (= 2.11.2)
   carrierwave
   coffee-rails (~> 3.2.1)
   daemons
   delayed_job_active_record
+  formtastic (~> 2.1.1)
   gibbon
   jquery-rails
+  less-rails
   mini_exiftool
   mini_magick
   pg
@@ -222,6 +224,7 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   sqlite3
   texticle (~> 2.0)
+  therubyracer
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)
   unicorn

@@ -5,18 +5,23 @@ gem 'rails', '3.2.2'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+group :development, :test do
+  gem 'sqlite3'
+end
 gem 'unix_utils'
 gem 'mini_exiftool'
 gem 'carrierwave'
 gem 'mini_magick'
-gem 'activeadmin'
+gem "formtastic", "~> 2.1.1"
+gem "activeadmin", "0.4.3"
+gem "therubyracer"
+gem "less-rails"
 gem "twitter-bootstrap-rails"
 gem 'gibbon'
 gem 'pg'
 gem 'texticle', '~> 2.0', :require => 'texticle/rails'
 gem 'delayed_job_active_record'
 gem "daemons"
-gem 'therubyracer'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -41,7 +46,7 @@ gem 'jquery-rails'
 gem 'unicorn'
 
 # Deploy with Capistrano
-gem 'capistrano'
+gem 'capistrano', "2.11.2"
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
