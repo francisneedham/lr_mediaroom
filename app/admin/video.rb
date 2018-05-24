@@ -7,9 +7,6 @@ ActiveAdmin.register Video do
     column 'Location', :sortable => :city do |video|
       "#{video.city} - #{video.country}"
     end
-    column :cover do |video|
-      image_tag video.cover
-    end
     column :published do |photo|
       status_tag photo.published? ? 'published' : 'draft'
     end
