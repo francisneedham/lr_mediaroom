@@ -11,6 +11,7 @@
  *= require_self
  *= require bootstrap_and_overrides.css
  *= require spacelab.css
+ *= require etc.css.scss
 */
 footer {
 display: block;
@@ -21,3 +22,5 @@ border-top:1px solid #ccc;
 padding-top:5px;
 margin-top:5px;
 }
+
+
