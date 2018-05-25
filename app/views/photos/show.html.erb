@@ -14,4 +14,4 @@
 </div>
 <%= content_tag :p, @photo.description %>
 <%= content_tag :p, "Shot in #{@photo.city} (#{@photo.country})" %>
-<%= content_tag :p, link_to('Download full size', download_gallery_photo_path(@gallery, @photo.id), :class => 'btn btn-danger btn-large', :target => '_blank') %>
+<%= content_tag :p, link_to('Download full size', @photo.image.url, :class => 'btn btn-danger btn-large', :target => '_blank') %>
