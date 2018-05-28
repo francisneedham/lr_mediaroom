@@ -27,7 +27,7 @@ namespace :delayed_job do
         run "cd #{release_path}; RAILS_ENV=#{rails_env} script/delayed_job restart"
     end
 end
-after "deploy:update_code", "delayed_job:restart"
+after "deploy:update_code", "ca"
 namespace :deploy do
   %w[start stop restart].each do |command|
     desc "#{command} unicorn server"

@@ -1,6 +1,6 @@
 ActiveAdmin.register Photo do
   index do
-    id_column
+    selectable_column
     column :description
     column "Location", :sortable => :city do |photo|
       "#{photo.city} - #{photo.country}"
