@@ -1,6 +1,6 @@
 class GalleriesController < ApplicationController
   def index
-    @galleries = Gallery.published
+  	@galleries = Gallery.published
                         .page(params[:page]).per(20)
   end
 

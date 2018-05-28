@@ -10,7 +10,7 @@
         <%= content_tag :h5, video.description %>
         <%= content_tag :p, "#{video.city} - #{video.country}" %>
         <% 2.times do |i|%>
-          <p><%= link_to video.send("attachment_#{i+1}_label"), download_attachment_video_path(video.id, :attachment => i+1), :class => "btn btn-danger" if video.send("attachment_#{i+1}").present? %></p>
+          <p><%= link_to video.send("attachment_#{i+1}_label"), video.send("attachment_#{i+1}"), :class => "btn btn-danger" if video.send("attachment_#{i+1}").present? %></p>
         <% end %>
       </div>
     </div>
