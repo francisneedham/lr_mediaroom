@@ -7,9 +7,10 @@ class VideosController < ApplicationController
 
   def download
     attachment = "attachment_#{params[:attachment]}_path".to_sym
+    puts  attachment
     video = Video.published.find params[:id]
     begin
-      send_file video.send(attachment).gsub(/releases\/[1-9]+/, 'shared')
+      send_file video.send(attachment).gsub(/releases\/[0-9]+/, 'shared')
       return
     rescue
       render :file => "#{Rails.root}/public/404.html", :status => 404
