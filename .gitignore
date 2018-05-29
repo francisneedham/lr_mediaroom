@@ -2,6 +2,7 @@
 log/*
 tmp/*
 public/uploads
+public/videos
 bin/*
 db/*.db
 db/*.sqlite3
