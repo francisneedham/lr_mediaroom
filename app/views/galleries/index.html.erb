@@ -5,7 +5,9 @@
   <% @galleries.each do |gallery| %>
     <li class="span3">
     <div class="thumbnail">
+      <% if gallery.cover.present? %>
       <%= link_to (image_tag gallery.cover.image.url(:preview), :alt => gallery.title), gallery_photos_path(gallery) %>
+      <% end %>
       <div class="caption">
         <%= content_tag :p, gallery.gallery_date %>
         <%= content_tag :h5, gallery.title %>
