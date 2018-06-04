@@ -1,6 +1,10 @@
 * {
 	box-sizing:border-box;
 }
+.pagination a, .pagination span {
+	border:0px!Important;
+}
+
 .main-grid {
 	display: flex;
 	flex-wrap:wrap;
@@ -12,6 +16,7 @@
 	}
 	.col_element {
 		padding: 20px;
+		height: 100%;
 		border:1px solid #ececec;
 	}
 	.col_image {
