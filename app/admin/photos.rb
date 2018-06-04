@@ -6,7 +6,7 @@ ActiveAdmin.register Photo do
       "#{photo.city} - #{photo.country}"
     end
     column :preview do |photo|
-      image_tag photo.image.url(:thumb)
+      image_tag photo.image.url(:preview)
     end
     column :published do |photo|
       status_tag photo.published? ? 'published' : 'draft'
