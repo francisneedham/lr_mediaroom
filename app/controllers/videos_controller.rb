@@ -1,7 +1,7 @@
 class VideosController < ApplicationController
   #before_filter :require_authentication
   def index
-    @videos  = Video.published
+    @videos  = Video.published.order("video_date DESC")
                     .page(params[:page]).per(20)
   end
 
