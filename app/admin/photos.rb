@@ -1,4 +1,12 @@
 ActiveAdmin.register Photo do
+  batch_action :destroy, false
+  batch_action :delete do |selection|
+    Photo.find(selection).each do |p|
+      p.destroy
+    end
+    redirect_to request.referer, alert: "Photos deleted"
+end
+
   index do
     selectable_column
     column :description

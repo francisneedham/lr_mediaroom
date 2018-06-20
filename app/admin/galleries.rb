@@ -23,7 +23,7 @@ ActiveAdmin.register Gallery do
           status_tag photo.published? ? 'published' : 'draft'
         end
         column 'Preview' do |photo|
-          image_tag photo.image.url(:thumb)
+          image_tag photo.image.url(:preview)
         end
         column "Actions" do |photo|
           link_to "Edit", edit_admin_photo_path(photo)
