@@ -3,7 +3,7 @@
     <ol>
       <li class="string input optional">
         <%= label_tag :path %>
-        <%= select_tag :archive_name, options_for_select(Gallery.uploaded_files) %>
+        <%= select_tag :archive_name, options_for_select(Dir.glob("galleries/**/*").map{|e| e.gsub("galleries/","")}) %>
       </li>
     </ol>
   </fieldset>
